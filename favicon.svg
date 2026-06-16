@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Christmas in July">
+  <defs>
+    <radialGradient id="bg" cx="38%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#13402f"></stop>
+      <stop offset="60%" stop-color="#0b2e22"></stop>
+      <stop offset="100%" stop-color="#082017"></stop>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e3cf9f"></stop>
+      <stop offset="48%" stop-color="#c2a877"></stop>
+      <stop offset="100%" stop-color="#a98c59"></stop>
+    </linearGradient>
+  </defs>
+
+  
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="url(#bg)"></rect>
+  
+  <rect x="4.5" y="4.5" width="55" height="55" rx="10.5" fill="none" stroke="#c2a877" stroke-opacity="0.38" stroke-width="1"></rect>
+
+  
+  <path d="M32 9&#xA;           L37.4 26.6&#xA;           L55 32&#xA;           L37.4 37.4&#xA;           L32 55&#xA;           L26.6 37.4&#xA;           L9 32&#xA;           L26.6 26.6 Z" fill="url(#gold)"></path>
+  
+  <circle cx="32" cy="32" r="3.1" fill="#0b2e22"></circle>
+  <circle cx="32" cy="32" r="1.25" fill="#f6f1e4"></circle>
+
+  
+  <circle cx="46.5" cy="18" r="1.5" fill="#c2a877"></circle>
+  <circle cx="17.5" cy="45" r="1.3" fill="#c2a877" fill-opacity="0.85"></circle>
+</svg>
