@@ -1,0 +1,9 @@
+{
+  "name": "christmas-in-july",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Christmas in July — Robina Dales & Robina Groves landing page + RSVP",
+  "dependencies": {
+    "pg": "^8.11.5"
+  }
+}

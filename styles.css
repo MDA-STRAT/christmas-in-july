@@ -177,10 +177,11 @@ section,header,footer{position:relative;}
 .h-display .ish{
   font-style:italic;
   color:var(--gold);
-  font-size:.62em;
-  vertical-align:.18em;
   letter-spacing:.01em;
-  margin:0 .04em;
+}
+.ish-body{
+  font-style:italic;
+  color:var(--gold);
 }
 .lede{
   font-size:clamp(1.15rem,2.3vw,1.7rem);line-height:1.62;
@@ -232,6 +233,87 @@ section,header,footer{position:relative;}
   background:var(--green-deep);overflow:hidden;position:relative;
 }
 .map-stage svg{display:block;width:100%;height:100%;}
+
+/* ============================================================
+   RSVP
+   ============================================================ */
+.rsvp{padding:clamp(70px,12vh,150px) 0 clamp(70px,11vh,140px);}
+.rsvp-wrap{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(36px,6vw,90px);align-items:start;}
+.rsvp-head .h-display{margin-top:1.2rem;}
+.rsvp-head .ish{font-style:italic;color:var(--gold);display:inline;}
+.rsvp-sub{
+  font-size:clamp(1.05rem,1.7vw,1.28rem);line-height:1.62;
+  max-width:34ch;margin:clamp(22px,3.5vh,40px) 0 0;color:var(--cream);opacity:.86;text-wrap:pretty;
+}
+.rsvp-sub .ital{color:var(--gold-soft);}
+
+.rsvp-form{padding-top:clamp(6px,1vh,18px);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,34px);}
+.field{display:block;margin-bottom:clamp(22px,3.4vh,34px);}
+.field-label{
+  display:block;font-family:var(--label);text-transform:uppercase;
+  letter-spacing:.26em;font-size:.68rem;color:var(--gold-soft);margin-bottom:.7rem;
+}
+.field-label .opt{text-transform:none;letter-spacing:.02em;font-style:italic;opacity:.7;font-family:var(--body);font-size:.92rem;}
+.field input,
+.field textarea{
+  width:100%;display:block;
+  background:transparent;border:none;border-bottom:1px solid rgba(246,241,228,.28);
+  color:var(--cream);
+  font-family:var(--body);font-size:1.12rem;line-height:1.5;
+  padding:.5rem 0 .7rem;outline:none;border-radius:0;
+  transition:border-color .35s var(--ease);
+  resize:none;
+}
+.field textarea{padding-top:.3rem;}
+.field input::placeholder,
+.field textarea::placeholder{color:rgba(246,241,228,.4);font-style:italic;}
+.field input:focus,
+.field textarea:focus{border-bottom-color:var(--gold);}
+.field input:invalid:not(:placeholder-shown){border-bottom-color:rgba(214,150,120,.7);}
+.field.error input,
+.field.error textarea{border-bottom-color:#d98a6a;}
+/* hide datalist arrow noise on some browsers, keep native dropdown */
+.field input[list]::-webkit-calendar-picker-indicator{opacity:.35;filter:invert(0.85) sepia(1) saturate(2) hue-rotate(5deg);}
+
+.rsvp-actions{display:flex;align-items:center;gap:clamp(18px,3vw,30px);flex-wrap:wrap;margin-top:clamp(10px,2vh,22px);}
+.rsvp-btn{
+  --b:var(--gold);
+  appearance:none;cursor:pointer;
+  background:transparent;color:var(--cream);
+  border:1px solid var(--b);
+  font-family:var(--label);text-transform:uppercase;letter-spacing:.28em;
+  font-size:.82rem;padding:1.05em 2.4em;position:relative;overflow:hidden;
+  transition:color .4s var(--ease);
+}
+.rsvp-btn::before{
+  content:"";position:absolute;inset:0;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);z-index:0;
+}
+.rsvp-btn .btn-text{position:relative;z-index:1;}
+.rsvp-btn:hover{color:var(--green);}
+.rsvp-btn:hover::before{transform:scaleX(1);}
+.rsvp-btn:disabled{cursor:default;opacity:.55;}
+.rsvp-btn:disabled:hover{color:var(--cream);}
+.rsvp-btn:disabled:hover::before{transform:scaleX(0);}
+
+.rsvp-status{margin:0;font-style:italic;font-size:1rem;line-height:1.5;min-height:1.2em;opacity:0;transform:translateY(4px);transition:opacity .4s var(--ease),transform .4s var(--ease);}
+.rsvp-status.show{opacity:1;transform:none;}
+.rsvp-status.ok{color:var(--gold-soft);}
+.rsvp-status.bad{color:#e6a585;}
+
+/* RSVP sits directly above the green closing — a hairline keeps them distinct */
+.closing{border-top:1px solid rgba(194,168,119,.18);}
+
+/* success replacement card */
+.rsvp-done{
+  border:1px solid rgba(194,168,119,.4);
+  background:linear-gradient(180deg,rgba(246,241,228,.05),rgba(246,241,228,.015));
+  padding:clamp(34px,5vw,56px);position:relative;
+}
+.rsvp-done::after{content:"";position:absolute;top:0;left:0;width:34px;height:34px;border-top:1px solid var(--gold);border-left:1px solid var(--gold);opacity:.55;margin:14px;}
+.rsvp-done .t-script{font-family:var(--script);color:var(--gold);font-size:clamp(2.2rem,5vw,3.4rem);line-height:1;margin:0 0 1rem;}
+.rsvp-done p{color:var(--cream);font-size:1.1rem;line-height:1.6;margin:0;opacity:.86;}
 
 /* ============================================================
    CLOSING
@@ -287,9 +369,11 @@ section,header,footer{position:relative;}
   .when-where{flex-direction:column;gap:26px;}
   .ww-div{display:none;}
   .when-where{gap:30px;}
+  .rsvp-wrap{grid-template-columns:1fr;gap:40px;}
 }
 @media (max-width:560px){
   .hero-meta{font-size:.7rem;letter-spacing:.16em;gap:.5em;}
   .qr-block{flex-direction:column;text-align:center;}
   .qr-side{text-align:center;}
+  .field-row{grid-template-columns:1fr;gap:0;}
 }

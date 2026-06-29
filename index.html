@@ -71,7 +71,7 @@
     <h2 class="h-display reveal" data-delay="1">A proper<br />cold<em class="ish">ish</em>&nbsp;weather<br />Christmas</h2>
     <p class="lede reveal" data-delay="2">
       Once a year the whole neighbourhood swaps the December heat for a real
-      cold&#8202;<span class="strike">ish</span>&#8202; weather Christmas. Good company, fierce game tactics, and
+      cold<em class="ish-body">ish</em> weather Christmas. Good company, fierce game tactics, and
       enough food to feed a sleigh team. No awkward gift swap, no agenda &mdash; just the
       street together, doing the most festive thing you can do in winter.
     </p>
@@ -130,6 +130,63 @@
 <!-- ============ transition cream -> green ============ -->
 <div class="melt melt--to-green" aria-hidden="true"></div>
 
+<!-- ============================ RSVP ============================ -->
+<section class="rsvp section--green" id="rsvp" data-screen-label="RSVP">
+  <div class="wrap rsvp-wrap">
+    <div class="rsvp-head">
+      <p class="eyebrow eyebrow--gold reveal">The only list that matters</p>
+      <h2 class="h-display reveal" data-delay="1">Will you<br />be there?<em class="ish"> (please say yes)</em></h2>
+      <p class="rsvp-sub reveal" data-delay="2">
+        We just need to know how many mince pies to stockpile &mdash; and whether
+        you&rsquo;re a <em class="ital">brings&nbsp;the&nbsp;pavlova</em> or a
+        <em class="ital">brings&nbsp;the&nbsp;chaos</em> kind of neighbour.
+      </p>
+    </div>
+
+    <form class="rsvp-form reveal" data-delay="2" id="rsvpForm" novalidate>
+      <div class="field-row">
+        <label class="field">
+          <span class="field-label">First name</span>
+          <input type="text" name="first_name" autocomplete="given-name" placeholder="e.g. Holly" required />
+        </label>
+        <label class="field">
+          <span class="field-label">Last name</span>
+          <input type="text" name="last_name" autocomplete="family-name" placeholder="e.g. Pine" required />
+        </label>
+      </div>
+
+      <label class="field">
+        <span class="field-label">Street address</span>
+        <input type="text" name="address" autocomplete="street-address" placeholder="So we know which neighbours are coming" required />
+      </label>
+
+      <label class="field">
+        <span class="field-label">What are you bringing?</span>
+        <input type="text" name="bringing" list="bringing-ideas" placeholder="A dish, a dessert, the good wine, or a great attitude" required />
+        <datalist id="bringing-ideas">
+          <option value="A dish to share"></option>
+          <option value="A dessert / something sweet"></option>
+          <option value="Drinks &amp; nibbles"></option>
+          <option value="A salad or sides"></option>
+          <option value="A great attitude"></option>
+        </datalist>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Dietary notes, or anything fun to add <em class="opt">(optional)</em></span>
+        <textarea name="notes" rows="2" placeholder="Allergies, a plus-one, or your boldest Secret Santa threat"></textarea>
+      </label>
+
+      <div class="rsvp-actions">
+        <button type="submit" class="rsvp-btn" id="rsvpBtn">
+          <span class="btn-text">Lock me in</span>
+        </button>
+        <p class="rsvp-status" id="rsvpStatus" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
 <!-- ============================ CLOSING ============================ -->
 <footer class="closing section--green" id="closing" data-screen-label="Closing">
   <canvas class="snow snow--soft" id="snow2" aria-hidden="true"></canvas>
@@ -154,6 +211,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="map.js"></script>
+<script src="rsvp.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
