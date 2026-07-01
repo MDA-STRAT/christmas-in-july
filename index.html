@@ -1,217 +1,845 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Christmas in July · Robina Dales &amp; Robina Groves</title>
-<meta name="description" content="An annual neighbourhood tradition. Sunday 26 July 2026, 12–3pm at Lancewood Circuit Reserve, Robina. The cold, cosy Christmas the Coast never gets in December." />
-<meta name="theme-color" content="#0b2e22" />
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Arsenal+SC:ital@0;1&family=Nothing+You+Could+Do&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCT: Ray White TMG — Buyer CRM</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="GCT CRM">
+<meta name="theme-color" content="#2563eb">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f5f3; --surface: #ffffff; --border: #e5e5e3;
+    --text: #1a1a1a; --text-muted: #888; --text-light: #bbb;
+    --accent: #2563eb; --accent-light: #eff4ff;
+    --green: #16a34a; --green-light: #f0fdf4;
+    --red: #dc2626; --red-light: #fef2f2;
+    --orange: #ea580c; --orange-light: #fff7ed;
+    --yellow: #ca8a04; --yellow-light: #fefce8;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08); --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --radius: 10px; --radius-sm: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; min-height: 100vh; }
+  nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .nav-brand { font-weight: 600; font-size: 15px; }
+  .nav-brand span { color: var(--accent); }
+  .nav-tabs { display: flex; gap: 2px; background: var(--bg); border-radius: 8px; padding: 3px; }
+  .nav-tab { padding: 6px 14px; border-radius: 6px; border: none; background: transparent; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
+  .nav-tab.active { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+  .nav-actions { display: flex; gap: 8px; }
+  .btn { padding: 7px 14px; border-radius: var(--radius-sm); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; border: none; transition: all 0.15s; }
+  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+  .btn-outline:hover { background: var(--bg); }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-danger { background: var(--red); color: white; }
+  .btn-danger:hover { background: #b91c1c; }
+  .btn-sm { padding: 5px 10px; font-size: 12px; }
+  .page { display: none; padding: 24px; max-width: 1200px; margin: 0 auto; }
+  .page.active { display: block; }
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; }
+  .stat-label { font-size: 11px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .stat-value { font-size: 28px; font-weight: 600; line-height: 1; }
+  .stat-value.blue { color: var(--accent); }
+  .stat-value.green { color: var(--green); }
+  .stat-value.red { color: var(--red); }
+  .stat-value.orange { color: var(--orange); }
+  .table-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .table-header { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .table-header h3 { font-size: 14px; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; }
+  th { padding: 10px 16px; text-align: left; font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); background: #fafafa; cursor: pointer; user-select: none; white-space: nowrap; }
+  th:hover { color: var(--text); }
+  th.sorted { color: var(--accent); }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafafa; }
+  .clickable-row { cursor: pointer; }
+  .badge { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-red { background: var(--red-light); color: var(--red); }
+  .badge-orange { background: var(--orange-light); color: var(--orange); }
+  .badge-yellow { background: var(--yellow-light); color: var(--yellow); }
+  .badge-blue { background: var(--accent-light); color: var(--accent); }
+  .badge-grey { background: #f3f4f6; color: #6b7280; }
+  .match-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-size: 12px; font-weight: 600; color: white; }
+  .match-badge.high { background: var(--green); }
+  .match-badge.med { background: var(--orange); }
+  .match-badge.zero { background: #e5e7eb; color: var(--text-muted); }
+  .avatar { width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: white; flex-shrink: 0; }
+  a.phone-link { color: var(--accent); text-decoration: none; font-family: 'DM Mono', monospace; font-size: 13px; }
+  a.phone-link:hover { text-decoration: underline; }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1000; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: var(--surface); border-radius: 14px; width: 100%; max-width: 640px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+  .modal-header { padding: 20px 24px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .modal-header h2 { font-size: 16px; font-weight: 600; }
+  .modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-muted); padding: 2px 6px; border-radius: 4px; }
+  .modal-close:hover { background: var(--bg); }
+  .modal-body { padding: 20px 24px; }
+  .modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 8px; justify-content: flex-end; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 5px; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+  input, select, textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text); background: var(--surface); transition: border-color 0.15s; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.08); }
+  textarea { resize: vertical; min-height: 70px; }
+  .profile-layout { display: grid; grid-template-columns: 300px 1fr; gap: 20px; }
+  .profile-sidebar { display: flex; flex-direction: column; gap: 12px; }
+  .profile-main { display: flex; flex-direction: column; gap: 12px; }
+  .profile-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .profile-card h3 { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 14px; }
+  .detail-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-row .label { color: var(--text-muted); }
+  .detail-row .value { font-weight: 500; text-align: right; max-width: 60%; }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 3px 9px; font-size: 12px; }
+  .back-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 13px; cursor: pointer; margin-bottom: 16px; }
+  .back-btn:hover { color: var(--text); }
+  .contact-log-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .contact-log-item:last-child { border-bottom: none; }
+  .contact-log-date { font-size: 11px; color: var(--text-muted); font-family: 'DM Mono', monospace; }
+  .match-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .match-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .match-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .match-property { padding: 8px 10px; background: var(--bg); border-radius: var(--radius-sm); margin-bottom: 6px; font-size: 12px; }
+  .match-property:last-child { margin-bottom: 0; }
+  .empty-state { text-align: center; padding: 48px 20px; color: var(--text-muted); }
+  .empty-state-icon { font-size: 36px; margin-bottom: 12px; }
+  .empty-state h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--text); color: white; padding: 10px 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; z-index: 9999; transform: translateY(80px); opacity: 0; transition: all 0.25s; pointer-events: none; }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.success { background: var(--green); }
+  .toast.error { background: var(--red); }
+  .search-bar { position: relative; }
+  .search-bar input { padding-left: 32px; background: var(--bg); border-color: transparent; }
+  .search-bar input:focus { background: var(--surface); border-color: var(--accent); }
+  .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 14px; pointer-events: none; }
+  .loading { text-align: center; padding: 40px; color: var(--text-muted); }
+  .hint { font-size: 11px; color: var(--text-muted); padding: 12px 16px; }
+  @media (max-width: 768px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .profile-layout { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 16px; }
+    .page { padding: 16px; }
+  }
+</style>
 </head>
 <body>
+<nav>
+  <div class="nav-brand"><span>GCT:</span> Ray White TMG</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showPage('buyers')">Buyers</button>
+    <button class="nav-tab" onclick="showPage('properties')">Properties</button>
+    <button class="nav-tab" onclick="showPage('matches')">Match Matrix</button>
+  </div>
+  <div class="nav-actions">
+    <button class="btn btn-outline" onclick="openAddProperty()">+ Property</button>
+    <button class="btn btn-primary" onclick="openAddBuyer()">+ Buyer</button>
+  </div>
+</nav>
 
-<!-- progress hairline -->
-<div class="scroll-rail" aria-hidden="true"><span id="scrollProgress"></span></div>
-
-<!-- corner wordmark -->
-<div class="wordmark" id="wordmark" aria-hidden="true">
-  <span class="wm-x">Christmas</span><span class="wm-s">in July</span>
+<!-- BUYERS PAGE -->
+<div id="page-buyers" class="page active">
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Total Buyers</div><div class="stat-value" id="stat-total">–</div></div>
+    <div class="stat-card"><div class="stat-label">Matched</div><div class="stat-value blue" id="stat-matched">–</div></div>
+    <div class="stat-card"><div class="stat-label">Not Contacted</div><div class="stat-value red" id="stat-uncontacted">–</div></div>
+    <div class="stat-card"><div class="stat-label">Pot. Sellers</div><div class="stat-value orange" id="stat-sellers">–</div></div>
+  </div>
+  <div class="table-card">
+    <div class="table-header">
+      <h3>All Buyers</h3>
+      <div class="search-bar" style="width:220px">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search buyers..." id="buyer-search" oninput="renderBuyers()">
+      </div>
+    </div>
+    <div id="buyers-table-wrap"><div class="loading">Loading buyers…</div></div>
+    <div class="hint">Tap a row to open profile · Tap phone number to call</div>
+  </div>
 </div>
 
-<!-- ============================ HERO ============================ -->
-<header class="hero" id="hero" data-screen-label="Hero">
-  <canvas class="snow" id="snow" aria-hidden="true"></canvas>
-  <div class="hero-frame" aria-hidden="true"></div>
+<!-- BUYER PROFILE PAGE -->
+<div id="page-profile" class="page">
+  <div class="back-btn" onclick="showPage('buyers')">← Back to Buyers</div>
+  <div id="profile-content"></div>
+</div>
 
-  <div class="hero-inner">
-    <p class="eyebrow hero-eyebrow reveal">Robina Dales &amp; Robina Groves</p>
-    <p class="eyebrow eyebrow--thin reveal" data-delay="1">An annual neighbourhood tradition</p>
-
-    <h1 class="hero-title">
-      <span class="t-line reveal" data-delay="2">Christmas</span>
-      <span class="t-script reveal" data-delay="3">in July</span>
-    </h1>
-
-    <p class="hero-sub reveal" data-delay="4">The cold, cosy Christmas the Coast never gets in December.</p>
-
-    <div class="hero-meta reveal" data-delay="5">
-      <span>Lancewood Circuit Reserve</span>
-      <i class="dot"></i>
-      <span>Sun 26 July 2026</span>
-      <i class="dot"></i>
-      <span>12:00&ndash;3:00pm</span>
-    </div>
-
-    <p class="hero-host reveal" data-delay="6">Hosted by Greg <i class="dot dot--gold"></i> Ray White TMG</p>
-  </div>
-
-  <button class="scroll-cue" id="scrollCue" aria-label="Scroll to read more">
-    <span class="sc-label">Scroll</span>
-    <span class="sc-arrow"></span>
-  </button>
-</header>
-
-<!-- ============ transition cream -> green ============ -->
-<div class="melt melt--to-green" aria-hidden="true"></div>
-
-<!-- ============================ ABOUT ============================ -->
-<section class="about section--green" id="about" data-screen-label="About">
-  <div class="wrap">
-    <p class="eyebrow eyebrow--gold reveal">Here is the whole plan</p>
-    <h2 class="h-display reveal" data-delay="1">A proper<br />cold<em class="ish">ish</em>&nbsp;weather<br />Christmas</h2>
-    <p class="lede reveal" data-delay="2">
-      Once a year the whole neighbourhood swaps the December heat for a real
-      cold<em class="ish-body">ish</em> weather Christmas. Good company, fierce game tactics, and
-      enough food to feed a sleigh team. No awkward gift swap, no agenda &mdash; just the
-      street together, doing the most festive thing you can do in winter.
-    </p>
-  </div>
-</section>
-
-<!-- ============================ THE PLAN ============================ -->
-<section class="plan section--green" id="plan" data-screen-label="The plan">
-  <div class="wrap">
-    <div class="when-where reveal">
-      <div class="ww-item">
-        <span class="eyebrow eyebrow--gold">Where</span>
-        <p class="ww-val">Lancewood Circuit Reserve</p>
-        <p class="ww-note">Robina, Gold Coast QLD</p>
-      </div>
-      <i class="ww-div" aria-hidden="true"></i>
-      <div class="ww-item">
-        <span class="eyebrow eyebrow--gold">When</span>
-        <p class="ww-val">Sunday 26 July 2026</p>
-        <p class="ww-note">12:00 &ndash; 3:00pm</p>
+<!-- PROPERTIES PAGE -->
+<div id="page-properties" class="page">
+  <div class="table-card">
+    <div class="table-header">
+      <h3>All Properties</h3>
+      <div class="search-bar" style="width:220px">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search properties..." id="prop-search" oninput="renderProperties()">
       </div>
     </div>
+    <div id="properties-table-wrap"><div class="loading">Loading properties…</div></div>
+  </div>
+</div>
 
-    <div class="cards">
-      <article class="card reveal">
-        <span class="card-num">01</span>
-        <span class="eyebrow eyebrow--gold">What to bring</span>
-        <p class="card-lead">A dish to share, or a plate of treats.</p>
-        <p class="card-body">That is the whole list. Truly.</p>
-      </article>
-      <article class="card reveal" data-delay="1">
-        <span class="card-num">02</span>
-        <span class="eyebrow eyebrow--gold">What we are bringing</span>
-        <p class="card-lead">The games, the drinks, and an unreasonable amount of Christmas cheer.</p>
-        <p class="card-body">You just turn up hungry.</p>
-      </article>
+<!-- MATCH MATRIX PAGE -->
+<div id="page-matches" class="page">
+  <div style="margin-bottom:16px">
+    <h2 style="font-size:16px;font-weight:600">Match Matrix</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:2px">Buyers matched to properties based on budget & requirements</p>
+  </div>
+  <div id="match-content"><div class="loading">Loading…</div></div>
+</div>
+
+<!-- ADD/EDIT BUYER MODAL -->
+<div class="modal-overlay" id="buyer-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="buyer-modal-title">Add Buyer</h2>
+      <button class="modal-close" onclick="closeModal('buyer-modal')">×</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="buyer-id">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" id="b-first" placeholder="Michael">
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" id="b-last" placeholder="Davis">
+        </div>
+        <div class="form-group">
+          <label>Mobile</label>
+          <input type="tel" id="b-mobile" placeholder="0400 000 000">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="b-email" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label>Budget Min ($)</label>
+          <input type="number" id="b-budget-min" placeholder="1200000">
+        </div>
+        <div class="form-group">
+          <label>Budget Max ($)</label>
+          <input type="number" id="b-budget-max" placeholder="1500000">
+        </div>
+        <div class="form-group">
+          <label>Bedrooms (min)</label>
+          <input type="number" id="b-beds" placeholder="3" min="0">
+        </div>
+        <div class="form-group">
+          <label>Bathrooms (min)</label>
+          <input type="number" id="b-baths" placeholder="2" min="0">
+        </div>
+        <div class="form-group">
+          <label>Garages (min)</label>
+          <input type="number" id="b-garages" placeholder="2" min="0">
+        </div>
+        <div class="form-group">
+          <label>Urgency</label>
+          <select id="b-urgency">
+            <option value="">–</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Finance</label>
+          <select id="b-finance">
+            <option value="">–</option>
+            <option value="Cash Buyer">Cash Buyer</option>
+            <option value="Pre-Approved">Pre-Approved</option>
+            <option value="Approved">Approved</option>
+            <option value="Needs Finance">Needs Finance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Possible Seller?</label>
+          <select id="b-seller">
+            <option value="">–</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pool</label>
+          <select id="b-pool">
+            <option value="">–</option>
+            <option value="Yes">Yes (required)</option>
+            <option value="Nice">Nice to have</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Current Suburb</label>
+          <input type="text" id="b-current-suburb" placeholder="Robina">
+        </div>
+        <div class="form-group full">
+          <label>Preferred Suburbs</label>
+          <input type="text" id="b-pref-suburbs" placeholder="e.g. Robina, Varsity Lakes">
+        </div>
+        <div class="form-group full">
+          <label>Property Types</label>
+          <input type="text" id="b-type" placeholder="e.g. House, Townhouse">
+        </div>
+        <div class="form-group full">
+          <label>Notes</label>
+          <textarea id="b-notes" placeholder="Additional notes…"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('buyer-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveBuyer()">Save Buyer</button>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ============ transition green -> cream ============ -->
-<div class="melt melt--to-cream" aria-hidden="true"></div>
-
-<!-- ============================ MAP ============================ -->
-<section class="mapsec section--cream" id="map" data-screen-label="Map">
-  <div class="wrap wrap--map">
-    <div class="map-head">
-      <p class="eyebrow reveal">Find us in the tinsel</p>
-      <h2 class="h-display h-display--ink reveal" data-delay="1">Lancewood<br /><em class="ital">Circuit</em> Reserve</h2>
-      <p class="map-addr reveal" data-delay="2">Lancewood Circuit, Robina QLD 4226 &mdash; the open green between Goldwater Drive and Lancewood Circuit. Look for the gathering.</p>
+<!-- ADD/EDIT PROPERTY MODAL -->
+<div class="modal-overlay" id="property-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="property-modal-title">Add Property</h2>
+      <button class="modal-close" onclick="closeModal('property-modal')">×</button>
     </div>
-    <div class="map-stage reveal" data-delay="2" id="mapStage"></div>
-  </div>
-</section>
-
-<!-- ============ transition cream -> green ============ -->
-<div class="melt melt--to-green" aria-hidden="true"></div>
-
-<!-- ============================ RSVP ============================ -->
-<section class="rsvp section--green" id="rsvp" data-screen-label="RSVP">
-  <div class="wrap rsvp-wrap">
-    <div class="rsvp-head">
-      <p class="eyebrow eyebrow--gold reveal">The only list that matters</p>
-      <h2 class="h-display reveal" data-delay="1">Will you<br />be there?<em class="ish"> (please say yes)</em></h2>
-      <p class="rsvp-sub reveal" data-delay="2">
-        We just need to know how many mince pies to stockpile &mdash; and whether
-        you&rsquo;re a <em class="ital">brings&nbsp;the&nbsp;pavlova</em> or a
-        <em class="ital">brings&nbsp;the&nbsp;chaos</em> kind of neighbour.
-      </p>
-    </div>
-
-    <form class="rsvp-form reveal" data-delay="2" id="rsvpForm" novalidate>
-      <div class="field-row">
-        <label class="field">
-          <span class="field-label">First name</span>
-          <input type="text" name="first_name" autocomplete="given-name" placeholder="e.g. Holly" required />
-        </label>
-        <label class="field">
-          <span class="field-label">Last name</span>
-          <input type="text" name="last_name" autocomplete="family-name" placeholder="e.g. Pine" required />
-        </label>
-      </div>
-
-      <label class="field">
-        <span class="field-label">Street address</span>
-        <input type="text" name="address" autocomplete="street-address" placeholder="So we know which neighbours are coming" required />
-      </label>
-
-      <label class="field">
-        <span class="field-label">What are you bringing?</span>
-        <input type="text" name="bringing" list="bringing-ideas" placeholder="A dish, a dessert, the good wine, or a great attitude" required />
-        <datalist id="bringing-ideas">
-          <option value="A dish to share"></option>
-          <option value="A dessert / something sweet"></option>
-          <option value="Drinks &amp; nibbles"></option>
-          <option value="A salad or sides"></option>
-          <option value="A great attitude"></option>
-        </datalist>
-      </label>
-
-      <label class="field">
-        <span class="field-label">Dietary notes, or anything fun to add <em class="opt">(optional)</em></span>
-        <textarea name="notes" rows="2" placeholder="Allergies, a plus-one, or your boldest Secret Santa threat"></textarea>
-      </label>
-
-      <div class="rsvp-actions">
-        <button type="submit" class="rsvp-btn" id="rsvpBtn">
-          <span class="btn-text">Lock me in</span>
-        </button>
-        <p class="rsvp-status" id="rsvpStatus" role="status" aria-live="polite"></p>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- ============================ CLOSING ============================ -->
-<footer class="closing section--green" id="closing" data-screen-label="Closing">
-  <canvas class="snow snow--soft" id="snow2" aria-hidden="true"></canvas>
-  <div class="wrap closing-inner">
-    <p class="t-script script--big reveal">See you in the tinsel</p>
-    <p class="closing-sign eyebrow eyebrow--gold reveal" data-delay="1">Greg &amp; the team <i class="dot dot--gold"></i> Ray White TMG</p>
-
-    <div class="qr-block reveal" data-delay="2">
-      <div class="qr-card">
-        <div id="qrcode" class="qr"></div>
-      </div>
-      <div class="qr-side">
-        <p class="eyebrow eyebrow--gold">Scan to keep the details</p>
-        <p class="qr-url" id="qrUrl">robinadalesgroves-christmasinjuly.netlify.app</p>
-        <p class="qr-fine">Snap a photo, send it to a neighbour, or stick it on the fridge until July.</p>
+    <div class="modal-body">
+      <input type="hidden" id="prop-id">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label>Address *</label>
+          <input type="text" id="p-address" placeholder="31 Concord Circuit">
+        </div>
+        <div class="form-group">
+          <label>Suburb</label>
+          <input type="text" id="p-suburb" placeholder="Robina">
+        </div>
+        <div class="form-group">
+          <label>Price Min ($)</label>
+          <input type="number" id="p-price-min" placeholder="1500000">
+        </div>
+        <div class="form-group">
+          <label>Price Max ($)</label>
+          <input type="number" id="p-price-max" placeholder="1600000">
+        </div>
+        <div class="form-group">
+          <label>Bedrooms</label>
+          <input type="number" id="p-beds" placeholder="4" min="0">
+        </div>
+        <div class="form-group">
+          <label>Bathrooms</label>
+          <input type="number" id="p-baths" placeholder="2" min="0">
+        </div>
+        <div class="form-group">
+          <label>Garages</label>
+          <input type="number" id="p-garages" placeholder="2" min="0">
+        </div>
+        <div class="form-group">
+          <label>Land Area (m²)</label>
+          <input type="number" id="p-area" placeholder="638">
+        </div>
+        <div class="form-group">
+          <label>Pool</label>
+          <select id="p-pool">
+            <option value="">–</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Is Auction?</label>
+          <select id="p-auction">
+            <option value="false">No</option>
+            <option value="true">Yes</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Status / Campaign Stage</label>
+          <input type="text" id="p-status" placeholder="e.g. Listed, Mid-April, Early April">
+        </div>
+        <div class="form-group full">
+          <label>Description</label>
+          <textarea id="p-desc" placeholder="Property description…"></textarea>
+        </div>
       </div>
     </div>
-
-    <p class="footnote reveal" data-delay="3">A Robina Dales &amp; Robina Groves neighbourhood tradition</p>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('property-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveProperty()">Save Property</button>
+    </div>
   </div>
-</footer>
+</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="map.js"></script>
-<script src="rsvp.js"></script>
-<script src="app.js"></script>
+<!-- LOG CONTACT MODAL -->
+<div class="modal-overlay" id="contact-modal">
+  <div class="modal" style="max-width:420px">
+    <div class="modal-header">
+      <h2>Log Contact</h2>
+      <button class="modal-close" onclick="closeModal('contact-modal')">×</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="contact-buyer-id">
+      <div class="form-grid">
+        <div class="form-group full">
+          <label>Method</label>
+          <select id="contact-method">
+            <option>Phone call</option><option>SMS</option><option>Email</option><option>In person</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Notes</label>
+          <textarea id="contact-notes" placeholder="What was discussed?…"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('contact-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveContact()">Log Contact</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let buyers = [], properties = [], currentBuyerId = null;
+let sortKey = 'matches', sortDir = -1;
+
+const COLORS = ['#4f46e5','#0891b2','#059669','#d97706','#dc2626','#7c3aed','#db2777','#0284c7'];
+function avatarColor(name) { let h=0; for(let c of (name||'')) h=(h*31+c.charCodeAt(0))%COLORS.length; return COLORS[h]; }
+function initials(name) { if(!name) return '?'; const p=name.trim().split(' '); return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():name.slice(0,2).toUpperCase(); }
+
+function buyerName(b) { return [b.first, b.last].filter(Boolean).join(' ') || 'Unknown'; }
+
+function fmt$(n) {
+  if (!n || n === 0) return '–';
+  if (n >= 1000000) return '$' + (n/1000000).toFixed(n%1000000===0?0:1) + 'M';
+  return '$' + Number(n).toLocaleString();
+}
+function fmtDate(d) {
+  if (!d) return 'Never';
+  const dt = new Date(d), now = new Date();
+  const diff = Math.floor((now-dt)/86400000);
+  if (diff===0) return 'Today'; if (diff===1) return 'Yesterday';
+  if (diff<7) return diff+'d ago'; if (diff<30) return Math.floor(diff/7)+'w ago';
+  return dt.toLocaleDateString('en-AU',{day:'numeric',month:'short'});
+}
+function urgencyBadge(u) {
+  const map={High:'badge-red',Medium:'badge-orange',Low:'badge-yellow'};
+  return u ? `<span class="badge ${map[u]||'badge-grey'}">${u}</span>` : '–';
+}
+function financeBadge(f) {
+  const map={'Pre-Approved':'badge-blue','Approved':'badge-green','Cash Buyer':'badge-green','Needs Finance':'badge-orange'};
+  return f ? `<span class="badge ${map[f]||'badge-grey'}">${f}</span>` : '–';
+}
+
+function matchBuyer(buyer, props) {
+  return props.filter(p => {
+    const pMin = parseFloat(p.priceMin)||0, pMax = parseFloat(p.priceMax)||0;
+    const bMin = parseFloat(buyer.budgetMin)||0, bMax = parseFloat(buyer.budgetMax)||0;
+    if (bMax > 0 && pMin > bMax * 1.05) return false;
+    if (bMin > 0 && pMax > 0 && pMax < bMin * 0.9) return false;
+    if (buyer.beds && p.beds && p.beds < buyer.beds) return false;
+    return true;
+  });
+}
+
+async function loadAll() {
+  try {
+    const [b, p] = await Promise.all([
+      fetch('/api/buyers').then(r=>r.json()),
+      fetch('/api/properties').then(r=>r.json())
+    ]);
+    buyers = Array.isArray(b) ? b : [];
+    properties = Array.isArray(p) ? p : [];
+  } catch(e) { buyers=[]; properties=[]; showToast('Failed to load data','error'); }
+  renderBuyers(); renderProperties(); renderStats();
+}
+
+function renderStats() {
+  document.getElementById('stat-total').textContent = buyers.length;
+  document.getElementById('stat-matched').textContent = buyers.filter(b=>matchBuyer(b,properties).length>0).length;
+  document.getElementById('stat-uncontacted').textContent = buyers.filter(b=>!b.last_contacted).length;
+  document.getElementById('stat-sellers').textContent = buyers.filter(b=>b.possibleSeller==='Yes').length;
+}
+
+function renderBuyers() {
+  const q = (document.getElementById('buyer-search')?.value||'').toLowerCase();
+  let list = buyers.filter(b => !q || buyerName(b).toLowerCase().includes(q) || (b.mobile||'').includes(q) || (b.email||'').toLowerCase().includes(q));
+  list = list.slice().sort((a,b) => {
+    let av, bv;
+    if (sortKey==='matches') { av=matchBuyer(a,properties).length; bv=matchBuyer(b,properties).length; }
+    else if (sortKey==='name') { av=buyerName(a).toLowerCase(); bv=buyerName(b).toLowerCase(); }
+    else if (sortKey==='budget') { av=parseFloat(a.budgetMax)||0; bv=parseFloat(b.budgetMax)||0; }
+    else if (sortKey==='contacted') { av=a.last_contacted?new Date(a.last_contacted).getTime():0; bv=b.last_contacted?new Date(b.last_contacted).getTime():0; }
+    else { av=0; bv=0; }
+    return av<bv?sortDir:av>bv?-sortDir:0;
+  });
+  const wrap = document.getElementById('buyers-table-wrap');
+  if (!list.length) { wrap.innerHTML=`<div class="empty-state"><div class="empty-state-icon">👤</div><h3>No buyers yet</h3><p>Add your first buyer to get started</p></div>`; return; }
+  function th(key, label) {
+    const active = sortKey===key, icon = active?(sortDir===1?'↑':'↓'):'↕';
+    return `<th onclick="setSort('${key}')" class="${active?'sorted':''}">${label} <span style="opacity:${active?1:0.4};color:${active?'var(--accent)':'inherit'}">${icon}</span></th>`;
+  }
+  const rows = list.map(b => {
+    const name = buyerName(b);
+    const matches = matchBuyer(b,properties).length;
+    const mc = matches>=3?'high':matches>=1?'med':'zero';
+    const budget = (b.budgetMin||b.budgetMax) ? `${fmt$(b.budgetMin)} – ${fmt$(b.budgetMax)}` : '–';
+    const contacted = b.last_contacted ? `<span style="color:var(--text-muted)">${fmtDate(b.last_contacted)}</span>` : `<span style="color:var(--red)">Never</span>`;
+    return `<tr class="clickable-row" onclick="openProfile(${b.id})">
+      <td><div style="display:flex;align-items:center;gap:10px">
+        <div class="avatar" style="background:${avatarColor(name)}">${initials(name)}</div>
+        <div><div style="font-weight:500">${name}</div>${b.email?`<div style="font-size:11px;color:var(--text-muted)">${b.email}</div>`:''}</div>
+      </div></td>
+      <td><a class="phone-link" href="tel:${b.mobile||''}" onclick="event.stopPropagation()">${b.mobile||'–'}</a></td>
+      <td>${budget}</td>
+      <td>${contacted}</td>
+      <td style="text-align:right"><div class="match-badge ${mc}">${matches}</div></td>
+    </tr>`;
+  }).join('');
+  wrap.innerHTML = `<table><thead><tr>${th('name','NAME')}<th>PHONE</th>${th('budget','BUDGET')}${th('contacted','LAST CONTACTED')}${th('matches','MATCHES')}</tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function setSort(key) { if(sortKey===key) sortDir*=-1; else { sortKey=key; sortDir=-1; } renderBuyers(); }
+
+async function openProfile(id) {
+  currentBuyerId = id;
+  showPage('profile');
+  const b = buyers.find(x=>x.id===id);
+  if (!b) return;
+  const name = buyerName(b);
+  const matches = matchBuyer(b, properties);
+  const logs = b.contact_log || [];
+  const budget = (b.budgetMin||b.budgetMax) ? `${fmt$(b.budgetMin)} – ${fmt$(b.budgetMax)}` : '–';
+  const prefSuburbs = b.prefSuburbs ? b.prefSuburbs.split(',').map(s=>s.trim()).filter(Boolean) : [];
+  const types = b.type ? b.type.split(',').map(s=>s.trim()).filter(Boolean) : [];
+
+  document.getElementById('profile-content').innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="avatar" style="background:${avatarColor(name)};width:44px;height:44px;font-size:15px">${initials(name)}</div>
+        <div><div style="font-size:18px;font-weight:600">${name}</div><div style="color:var(--text-muted);font-size:13px">${b.email||''}</div></div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-outline btn-sm" onclick="openLogContact(${b.id})">Log Contact</button>
+        <button class="btn btn-outline btn-sm" onclick="openEditBuyer(${b.id})">Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteBuyer(${b.id})">Delete</button>
+      </div>
+    </div>
+    <div class="profile-layout">
+      <div class="profile-sidebar">
+        <div class="profile-card">
+          <h3>Contact</h3>
+          <div class="detail-row"><span class="label">Mobile</span><span class="value">${b.mobile?`<a class="phone-link" href="tel:${b.mobile}">${b.mobile}</a>`:'–'}</span></div>
+          <div class="detail-row"><span class="label">Email</span><span class="value" style="font-size:12px">${b.email||'–'}</span></div>
+          <div class="detail-row"><span class="label">Last contacted</span><span class="value" style="color:${b.last_contacted?'inherit':'var(--red)'}">${fmtDate(b.last_contacted)}</span></div>
+          <div class="detail-row"><span class="label">Current suburb</span><span class="value">${b.currentSuburb||'–'}</span></div>
+        </div>
+        <div class="profile-card">
+          <h3>Requirements</h3>
+          <div class="detail-row"><span class="label">Budget</span><span class="value">${budget}</span></div>
+          <div class="detail-row"><span class="label">Beds</span><span class="value">${b.beds||'–'}+</span></div>
+          <div class="detail-row"><span class="label">Baths</span><span class="value">${b.baths||'–'}+</span></div>
+          <div class="detail-row"><span class="label">Garages</span><span class="value">${b.garagesMin||'–'}+</span></div>
+          <div class="detail-row"><span class="label">Pool</span><span class="value">${b.pool||'–'}</span></div>
+          <div class="detail-row"><span class="label">Urgency</span><span class="value">${urgencyBadge(b.urgency)}</span></div>
+          <div class="detail-row"><span class="label">Finance</span><span class="value">${financeBadge(b.finance)}</span></div>
+          ${b.possibleSeller==='Yes'?'<div class="detail-row"><span class="label">Pot. Seller</span><span class="value"><span class="badge badge-orange">Yes</span></span></div>':''}
+        </div>
+        ${prefSuburbs.length?`<div class="profile-card"><h3>Preferred Suburbs</h3><div class="tags">${prefSuburbs.map(s=>`<span class="tag">${s}</span>`).join('')}</div></div>`:''}
+        ${types.length?`<div class="profile-card"><h3>Property Types</h3><div class="tags">${types.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>`:''}
+        ${b.notes?`<div class="profile-card"><h3>Notes</h3><p style="font-size:13px;color:var(--text-muted);line-height:1.6">${b.notes}</p></div>`:''}
+      </div>
+      <div class="profile-main">
+        <div class="profile-card">
+          <h3>Matched Properties (${matches.length})</h3>
+          ${matches.length ? matches.map(p=>`
+            <div style="padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px">
+              <div style="font-weight:500;font-size:13px">${p.address}, ${p.suburb||''}</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:3px">${fmt$(p.priceMin)}–${fmt$(p.priceMax)} · ${p.beds||'?'}bd ${p.baths||'?'}ba · ${p.pool?'Pool ·':''} ${p.status||''}</div>
+            </div>`).join('') : `<div style="color:var(--text-muted);font-size:13px">No matching properties found</div>`}
+        </div>
+        <div class="profile-card">
+          <h3>Contact History (${logs.length})</h3>
+          ${logs.length ? [...logs].sort((a,b)=>new Date(b.contacted_at)-new Date(a.contacted_at)).map(l=>`
+            <div class="contact-log-item">
+              <div class="contact-log-date">${new Date(l.contacted_at).toLocaleString('en-AU')} · ${l.method||''}</div>
+              <div style="font-size:13px;margin-top:3px">${l.notes||'–'}</div>
+            </div>`).join('') : `<div style="color:var(--text-muted);font-size:13px">No contact logged yet</div>`}
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderProperties() {
+  const q = (document.getElementById('prop-search')?.value||'').toLowerCase();
+  const list = properties.filter(p => !q || (p.address||'').toLowerCase().includes(q) || (p.suburb||'').toLowerCase().includes(q));
+  const wrap = document.getElementById('properties-table-wrap');
+  if (!list.length) { wrap.innerHTML=`<div class="empty-state"><div class="empty-state-icon">🏠</div><h3>No properties yet</h3></div>`; return; }
+  const statusColor = s => s==='Listed'?'badge-green':s==='Sold'?'badge-red':'badge-orange';
+  const rows = list.map(p => `<tr>
+    <td><div style="font-weight:500">${p.address||'–'}</div><div style="font-size:11px;color:var(--text-muted)">${p.suburb||''}</div></td>
+    <td style="font-size:13px">${fmt$(p.priceMin)}${p.priceMax&&p.priceMax!==p.priceMin?` – ${fmt$(p.priceMax)}`:''}</td>
+    <td style="font-size:13px">${p.beds||'?'}bd ${p.baths||'?'}ba${p.garages?' '+p.garages+'gar':''}</td>
+    <td style="font-size:12px">${p.area?p.area+'m²':'–'}</td>
+    <td>${p.pool==='Yes'?'<span class="badge badge-blue">Pool</span>':'–'}</td>
+    <td><span class="badge ${statusColor(p.status)}">${p.status||'–'}</span></td>
+    <td style="text-align:right">
+      <button class="btn btn-outline btn-sm" onclick="openEditProperty(${p.id})" style="margin-right:4px">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deleteProperty(${p.id})">Delete</button>
+    </td>
+  </tr>`).join('');
+  wrap.innerHTML = `<table><thead><tr><th>ADDRESS</th><th>PRICE</th><th>SPECS</th><th>LAND</th><th>POOL</th><th>STATUS</th><th></th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function renderMatches() {
+  const el = document.getElementById('match-content');
+  if (!buyers.length) { el.innerHTML=`<div class="empty-state"><div class="empty-state-icon">⚡</div><h3>No buyers yet</h3></div>`; return; }
+  const cards = buyers.map(b => {
+    const name = buyerName(b);
+    const matches = matchBuyer(b, properties);
+    const budget = (b.budgetMin||b.budgetMax)?`${fmt$(b.budgetMin)} – ${fmt$(b.budgetMax)}`:'–';
+    return `<div class="match-card">
+      <div class="match-card-header">
+        <div class="avatar" style="background:${avatarColor(name)}">${initials(name)}</div>
+        <div><div style="font-weight:600;font-size:14px">${name}</div><div style="font-size:12px;color:var(--text-muted)">${budget}</div></div>
+        <div class="match-badge ${matches.length>=3?'high':matches.length>=1?'med':'zero'}" style="margin-left:auto">${matches.length}</div>
+      </div>
+      ${matches.length ? matches.map(p=>`
+        <div class="match-property">
+          <div style="font-weight:500">${p.address}, ${p.suburb||''}</div>
+          <div style="color:var(--text-muted)">${fmt$(p.priceMin)}–${fmt$(p.priceMax)} · ${p.beds||'?'}bd ${p.baths||'?'}ba</div>
+        </div>`).join('') : `<div style="font-size:12px;color:var(--text-muted)">No matches found</div>`}
+    </div>`;
+  }).join('');
+  el.innerHTML = `<div class="match-grid">${cards}</div>`;
+}
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  const tabs={buyers:0,properties:1,matches:2};
+  if (tabs[name]!==undefined) document.querySelectorAll('.nav-tab')[tabs[name]]?.classList.add('active');
+  if (name==='matches') renderMatches();
+}
+
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+function openAddBuyer() {
+  document.getElementById('buyer-modal-title').textContent = 'Add Buyer';
+  ['buyer-id','b-first','b-last','b-mobile','b-email','b-budget-min','b-budget-max','b-beds','b-baths','b-garages','b-pref-suburbs','b-type','b-notes','b-current-suburb'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['b-urgency','b-finance','b-seller','b-pool'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('buyer-modal').classList.add('open');
+}
+
+function openEditBuyer(id) {
+  const b = buyers.find(x=>x.id===id);
+  if (!b) return;
+  document.getElementById('buyer-modal-title').textContent = 'Edit Buyer';
+  document.getElementById('buyer-id').value = b.id;
+  document.getElementById('b-first').value = b.first||'';
+  document.getElementById('b-last').value = b.last||'';
+  document.getElementById('b-mobile').value = b.mobile||'';
+  document.getElementById('b-email').value = b.email||'';
+  document.getElementById('b-budget-min').value = b.budgetMin||'';
+  document.getElementById('b-budget-max').value = b.budgetMax||'';
+  document.getElementById('b-beds').value = b.beds||'';
+  document.getElementById('b-baths').value = b.baths||'';
+  document.getElementById('b-garages').value = b.garagesMin||'';
+  document.getElementById('b-urgency').value = b.urgency||'';
+  document.getElementById('b-finance').value = b.finance||'';
+  document.getElementById('b-seller').value = b.possibleSeller||'';
+  document.getElementById('b-pool').value = b.pool||'';
+  document.getElementById('b-current-suburb').value = b.currentSuburb||'';
+  document.getElementById('b-pref-suburbs').value = b.prefSuburbs||'';
+  document.getElementById('b-type').value = b.type||'';
+  document.getElementById('b-notes').value = b.notes||'';
+  document.getElementById('buyer-modal').classList.add('open');
+}
+
+async function saveBuyer() {
+  const first = document.getElementById('b-first').value.trim();
+  const last = document.getElementById('b-last').value.trim();
+  if (!first && !last) { showToast('Name is required','error'); return; }
+  const id = document.getElementById('buyer-id').value;
+  const existing = id ? buyers.find(b=>b.id==id) : {};
+  const payload = {
+    ...(existing||{}),
+    first, last,
+    mobile: document.getElementById('b-mobile').value.trim(),
+    email: document.getElementById('b-email').value.trim(),
+    budgetMin: parseFloat(document.getElementById('b-budget-min').value)||0,
+    budgetMax: parseFloat(document.getElementById('b-budget-max').value)||0,
+    beds: parseInt(document.getElementById('b-beds').value)||0,
+    baths: parseInt(document.getElementById('b-baths').value)||0,
+    garagesMin: parseInt(document.getElementById('b-garages').value)||0,
+    urgency: document.getElementById('b-urgency').value,
+    finance: document.getElementById('b-finance').value,
+    possibleSeller: document.getElementById('b-seller').value,
+    pool: document.getElementById('b-pool').value,
+    currentSuburb: document.getElementById('b-current-suburb').value.trim(),
+    prefSuburbs: document.getElementById('b-pref-suburbs').value.trim(),
+    type: document.getElementById('b-type').value.trim(),
+    notes: document.getElementById('b-notes').value.trim(),
+    interactions: existing?.interactions || [],
+    contact_log: existing?.contact_log || [],
+    last_contacted: existing?.last_contacted || null,
+    financeReferred: existing?.financeReferred || false,
+    wantsFinance: existing?.wantsFinance || '',
+    needsRental: existing?.needsRental || ''
+  };
+  try {
+    const url = id ? `/api/buyers?id=${id}` : '/api/buyers';
+    const method = id ? 'PUT' : 'POST';
+    const res = await fetch(url, {method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+    if (!res.ok) throw new Error('Save failed');
+    const saved = await res.json();
+    if (id) buyers = buyers.map(b=>b.id==id?saved:b);
+    else buyers.unshift(saved);
+    closeModal('buyer-modal');
+    renderBuyers(); renderStats();
+    showToast(id?'Buyer updated':'Buyer added','success');
+    if (currentBuyerId==id) openProfile(parseInt(id));
+  } catch(e) { showToast('Failed to save buyer','error'); console.error(e); }
+}
+
+async function deleteBuyer(id) {
+  if (!confirm('Delete this buyer? This cannot be undone.')) return;
+  try {
+    await fetch(`/api/buyers?id=${id}`, {method:'DELETE'});
+    buyers = buyers.filter(b=>b.id!==id);
+    showPage('buyers'); renderBuyers(); renderStats();
+    showToast('Buyer deleted');
+  } catch(e) { showToast('Failed to delete','error'); }
+}
+
+function openAddProperty() {
+  document.getElementById('property-modal-title').textContent = 'Add Property';
+  ['prop-id','p-address','p-suburb','p-price-min','p-price-max','p-beds','p-baths','p-garages','p-area','p-status','p-desc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('p-pool').value='';
+  document.getElementById('p-auction').value='false';
+  document.getElementById('property-modal').classList.add('open');
+}
+
+function openEditProperty(id) {
+  const p = properties.find(x=>x.id===id);
+  if (!p) return;
+  document.getElementById('property-modal-title').textContent = 'Edit Property';
+  document.getElementById('prop-id').value = p.id;
+  document.getElementById('p-address').value = p.address||'';
+  document.getElementById('p-suburb').value = p.suburb||'';
+  document.getElementById('p-price-min').value = p.priceMin||'';
+  document.getElementById('p-price-max').value = p.priceMax||'';
+  document.getElementById('p-beds').value = p.beds||'';
+  document.getElementById('p-baths').value = p.baths||'';
+  document.getElementById('p-garages').value = p.garages||'';
+  document.getElementById('p-area').value = p.area||'';
+  document.getElementById('p-pool').value = p.pool||'';
+  document.getElementById('p-auction').value = p.isAuction?'true':'false';
+  document.getElementById('p-status').value = p.status||'';
+  document.getElementById('p-desc').value = p.desc||'';
+  document.getElementById('property-modal').classList.add('open');
+}
+
+async function saveProperty() {
+  const address = document.getElementById('p-address').value.trim();
+  if (!address) { showToast('Address is required','error'); return; }
+  const id = document.getElementById('prop-id').value;
+  const existing = id ? properties.find(p=>p.id==id) : {};
+  const payload = {
+    ...(existing||{}),
+    address,
+    suburb: document.getElementById('p-suburb').value.trim(),
+    priceMin: parseFloat(document.getElementById('p-price-min').value)||0,
+    priceMax: parseFloat(document.getElementById('p-price-max').value)||0,
+    beds: parseInt(document.getElementById('p-beds').value)||0,
+    baths: parseInt(document.getElementById('p-baths').value)||0,
+    garages: parseInt(document.getElementById('p-garages').value)||0,
+    area: document.getElementById('p-area').value.trim(),
+    pool: document.getElementById('p-pool').value,
+    isAuction: document.getElementById('p-auction').value==='true',
+    status: document.getElementById('p-status').value.trim(),
+    desc: document.getElementById('p-desc').value.trim(),
+    statusSetDate: existing?.statusSetDate || new Date().toISOString().split('T')[0],
+    manualOverrideDate: new Date().toISOString().split('T')[0]
+  };
+  try {
+    const url = id ? `/api/properties?id=${id}` : '/api/properties';
+    const method = id ? 'PUT' : 'POST';
+    const res = await fetch(url, {method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+    if (!res.ok) throw new Error('Save failed');
+    const saved = await res.json();
+    if (id) properties = properties.map(p=>p.id==id?saved:p);
+    else properties.unshift(saved);
+    closeModal('property-modal');
+    renderProperties(); renderStats();
+    showToast(id?'Property updated':'Property added','success');
+  } catch(e) { showToast('Failed to save property','error'); console.error(e); }
+}
+
+async function deleteProperty(id) {
+  if (!confirm('Delete this property?')) return;
+  try {
+    await fetch(`/api/properties?id=${id}`, {method:'DELETE'});
+    properties = properties.filter(p=>p.id!==id);
+    renderProperties(); renderStats();
+    showToast('Property deleted');
+  } catch(e) { showToast('Failed to delete','error'); }
+}
+
+function openLogContact(buyerId) {
+  document.getElementById('contact-buyer-id').value = buyerId;
+  document.getElementById('contact-method').value = 'Phone call';
+  document.getElementById('contact-notes').value = '';
+  document.getElementById('contact-modal').classList.add('open');
+}
+
+async function saveContact() {
+  const buyer_id = document.getElementById('contact-buyer-id').value;
+  const method = document.getElementById('contact-method').value;
+  const notes = document.getElementById('contact-notes').value.trim();
+  try {
+    const res = await fetch('/api/contact-logs', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({buyer_id, method, notes})});
+    if (!res.ok) throw new Error('Failed');
+    const newLog = await res.json();
+    const idx = buyers.findIndex(b=>b.id==buyer_id);
+    if (idx>=0) {
+      buyers[idx].last_contacted = newLog.contacted_at;
+      buyers[idx].contact_log = [...(buyers[idx].contact_log||[]), newLog];
+    }
+    closeModal('contact-modal');
+    showToast('Contact logged','success');
+    renderBuyers();
+    if (currentBuyerId==buyer_id) openProfile(parseInt(buyer_id));
+  } catch(e) { showToast('Failed to log contact','error'); }
+}
+
+document.querySelectorAll('.modal-overlay').forEach(el => {
+  el.addEventListener('click', e=>{ if(e.target===el) el.classList.remove('open'); });
+});
+
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast show '+type;
+  setTimeout(()=>t.classList.remove('show'), 2800);
+}
+
+loadAll();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', ()=>{ navigator.serviceWorker.register('/sw.js').catch(()=>{}); });
+}
+</script>
 </body>
 </html>
