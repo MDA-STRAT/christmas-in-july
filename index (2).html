@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Christmas in July · Robina Dales &amp; Robina Groves</title>
+<meta name="description" content="An annual neighbourhood tradition. Sunday 26 July 2026, 12–3pm at Lancewood Circuit Reserve, Robina. The cold, cosy Christmas the Coast never gets in December." />
+<meta name="theme-color" content="#0b2e22" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Arsenal+SC:ital@0;1&family=Nothing+You+Could+Do&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+</head>
+<body>
+
+<!-- progress hairline -->
+<div class="scroll-rail" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+<!-- corner wordmark -->
+<div class="wordmark" id="wordmark" aria-hidden="true">
+  <span class="wm-x">Christmas</span><span class="wm-s">in July</span>
+</div>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero" id="hero" data-screen-label="Hero">
+  <canvas class="snow" id="snow" aria-hidden="true"></canvas>
+  <div class="hero-frame" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <p class="eyebrow hero-eyebrow reveal">Robina Dales &amp; Robina Groves</p>
+    <p class="eyebrow eyebrow--thin reveal" data-delay="1">An annual neighbourhood tradition</p>
+
+    <h1 class="hero-title">
+      <span class="t-line reveal" data-delay="2">Christmas</span>
+      <span class="t-script reveal" data-delay="3">in July</span>
+    </h1>
+
+    <p class="hero-sub reveal" data-delay="4">The cold, cosy Christmas the Coast never gets in December.</p>
+
+    <div class="hero-meta reveal" data-delay="5">
+      <span>Lancewood Circuit Reserve</span>
+      <i class="dot"></i>
+      <span>Sun 26 July 2026</span>
+      <i class="dot"></i>
+      <span>12:00&ndash;3:00pm</span>
+    </div>
+
+    <p class="hero-host reveal" data-delay="6">Hosted by Greg <i class="dot dot--gold"></i> Ray White TMG</p>
+  </div>
+
+  <button class="scroll-cue" id="scrollCue" aria-label="Scroll to read more">
+    <span class="sc-label">Scroll</span>
+    <span class="sc-arrow"></span>
+  </button>
+</header>
+
+<!-- ============ transition cream -> green ============ -->
+<div class="melt melt--to-green" aria-hidden="true"></div>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="about section--green" id="about" data-screen-label="About">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--gold reveal">Here is the whole plan</p>
+    <h2 class="h-display reveal" data-delay="1">A proper<br />cold<em class="ish">ish</em>&nbsp;weather<br />Christmas</h2>
+    <p class="lede reveal" data-delay="2">
+      Once a year the whole neighbourhood swaps the December heat for a real
+      cold<em class="ish-body">ish</em> weather Christmas. Good company, fierce game tactics, and
+      enough food to feed a sleigh team. No awkward gift swap, no agenda &mdash; just the
+      street together, doing the most festive thing you can do in winter.
+    </p>
+  </div>
+</section>
+
+<!-- ============================ THE PLAN ============================ -->
+<section class="plan section--green" id="plan" data-screen-label="The plan">
+  <div class="wrap">
+    <div class="when-where reveal">
+      <div class="ww-item">
+        <span class="eyebrow eyebrow--gold">Where</span>
+        <p class="ww-val">Lancewood Circuit Reserve</p>
+        <p class="ww-note">Robina, Gold Coast QLD</p>
+      </div>
+      <i class="ww-div" aria-hidden="true"></i>
+      <div class="ww-item">
+        <span class="eyebrow eyebrow--gold">When</span>
+        <p class="ww-val">Sunday 26 July 2026</p>
+        <p class="ww-note">12:00 &ndash; 3:00pm</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card-num">01</span>
+        <span class="eyebrow eyebrow--gold">What to bring</span>
+        <p class="card-lead">A dish to share, or a plate of treats.</p>
+        <p class="card-body">That is the whole list. Truly.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <span class="card-num">02</span>
+        <span class="eyebrow eyebrow--gold">What we are bringing</span>
+        <p class="card-lead">The games, the drinks, and an unreasonable amount of Christmas cheer.</p>
+        <p class="card-body">You just turn up hungry.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ transition green -> cream ============ -->
+<div class="melt melt--to-cream" aria-hidden="true"></div>
+
+<!-- ============================ MAP ============================ -->
+<section class="mapsec section--cream" id="map" data-screen-label="Map">
+  <div class="wrap wrap--map">
+    <div class="map-head">
+      <p class="eyebrow reveal">Find us in the tinsel</p>
+      <h2 class="h-display h-display--ink reveal" data-delay="1">Lancewood<br /><em class="ital">Circuit</em> Reserve</h2>
+      <p class="map-addr reveal" data-delay="2">Lancewood Circuit, Robina QLD 4226 &mdash; the open green between Goldwater Drive and Lancewood Circuit. Look for the gathering.</p>
+    </div>
+    <div class="map-stage reveal" data-delay="2" id="mapStage"></div>
+  </div>
+</section>
+
+<!-- ============ transition cream -> green ============ -->
+<div class="melt melt--to-green" aria-hidden="true"></div>
+
+<!-- ============================ RSVP ============================ -->
+<section class="rsvp section--green" id="rsvp" data-screen-label="RSVP">
+  <div class="wrap rsvp-wrap">
+    <div class="rsvp-head">
+      <p class="eyebrow eyebrow--gold reveal">The only list that matters</p>
+      <h2 class="h-display reveal" data-delay="1">Will you<br />be there?<em class="ish"> (please say yes)</em></h2>
+      <p class="rsvp-sub reveal" data-delay="2">
+        We just need to know how many mince pies to stockpile &mdash; and whether
+        you&rsquo;re a <em class="ital">brings&nbsp;the&nbsp;pavlova</em> or a
+        <em class="ital">brings&nbsp;the&nbsp;chaos</em> kind of neighbour.
+      </p>
+    </div>
+
+    <form class="rsvp-form reveal" data-delay="2" id="rsvpForm" novalidate>
+      <div class="field-row">
+        <label class="field">
+          <span class="field-label">First name</span>
+          <input type="text" name="first_name" autocomplete="given-name" placeholder="e.g. Holly" required />
+        </label>
+        <label class="field">
+          <span class="field-label">Last name</span>
+          <input type="text" name="last_name" autocomplete="family-name" placeholder="e.g. Pine" required />
+        </label>
+      </div>
+
+      <label class="field">
+        <span class="field-label">Street address</span>
+        <input type="text" name="address" autocomplete="street-address" placeholder="So we know which neighbours are coming" required />
+      </label>
+
+      <label class="field">
+        <span class="field-label">What are you bringing?</span>
+        <input type="text" name="bringing" list="bringing-ideas" placeholder="A dish, a dessert, the good wine, or a great attitude" required />
+        <datalist id="bringing-ideas">
+          <option value="A dish to share"></option>
+          <option value="A dessert / something sweet"></option>
+          <option value="Drinks &amp; nibbles"></option>
+          <option value="A salad or sides"></option>
+          <option value="A great attitude"></option>
+        </datalist>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Dietary notes, or anything fun to add <em class="opt">(optional)</em></span>
+        <textarea name="notes" rows="2" placeholder="Allergies, a plus-one, or your boldest Secret Santa threat"></textarea>
+      </label>
+
+      <div class="rsvp-actions">
+        <button type="submit" class="rsvp-btn" id="rsvpBtn">
+          <span class="btn-text">Lock me in</span>
+        </button>
+        <p class="rsvp-status" id="rsvpStatus" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============================ CLOSING ============================ -->
+<footer class="closing section--green" id="closing" data-screen-label="Closing">
+  <canvas class="snow snow--soft" id="snow2" aria-hidden="true"></canvas>
+  <div class="wrap closing-inner">
+    <p class="t-script script--big reveal">See you in the tinsel</p>
+    <p class="closing-sign eyebrow eyebrow--gold reveal" data-delay="1">Greg &amp; the team <i class="dot dot--gold"></i> Ray White TMG</p>
+
+    <div class="qr-block reveal" data-delay="2">
+      <div class="qr-card">
+        <div id="qrcode" class="qr"></div>
+      </div>
+      <div class="qr-side">
+        <p class="eyebrow eyebrow--gold">Scan to keep the details</p>
+        <p class="qr-url" id="qrUrl">robinadalesgroves-christmasinjuly.netlify.app</p>
+        <p class="qr-fine">Snap a photo, send it to a neighbour, or stick it on the fridge until July.</p>
+      </div>
+    </div>
+
+    <p class="footnote reveal" data-delay="3">A Robina Dales &amp; Robina Groves neighbourhood tradition</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="map.js"></script>
+<script src="rsvp.js"></script>
+<script src="app.js"></script>
+
+<!-- ===== Cloudflare Web Analytics (free, privacy-friendly, no cookie banner) =====
+     SETUP: replace YOUR_CLOUDFLARE_TOKEN below with the token Cloudflare gives you
+     (dash.cloudflare.com -> Web Analytics -> Add a site -> copy the token from the
+     snippet it shows). Until you do, this line is harmless and tracks nothing. -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "YOUR_CLOUDFLARE_TOKEN"}'></script>
+<!-- ===== end Cloudflare Web Analytics ===== -->
+</body>
+</html>
