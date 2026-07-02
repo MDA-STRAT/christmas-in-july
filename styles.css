@@ -23,7 +23,7 @@
 }
 
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%;}
 body{
   margin:0;
   font-family:var(--body);
@@ -167,7 +167,28 @@ section,header,footer{position:relative;}
 }
 .section--green .wrap{position:relative;z-index:2;}
 
-.about{padding:clamp(70px,12vh,150px) 0 clamp(50px,8vh,90px);}
+.about{padding:clamp(70px,12vh,150px) 0 clamp(50px,8vh,90px);overflow:hidden;min-height:640px;}
+
+/* hanging bauble — right side, ribbon top fades in like the cream→green melt */
+.bauble{
+  position:absolute;
+  top:-10px;
+  right:clamp(24px,7vw,140px);
+  width:clamp(320px,40vw,480px);
+  height:auto;
+  z-index:2;
+  pointer-events:none;
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 7%, #000 20%);
+          mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 7%, #000 20%);
+  filter:drop-shadow(0 26px 32px rgba(0,0,0,.38));
+  animation:baubleSway 6.5s ease-in-out infinite;
+  transform-origin:50% 0%;
+}
+@keyframes baubleSway{
+  0%,100%{transform:rotate(-1.6deg);}
+  50%{transform:rotate(1.6deg);}
+}
+@media (prefers-reduced-motion: reduce){ .bauble{animation:none;} }
 .h-display{
   font-family:var(--display);font-weight:400;
   font-size:clamp(2.8rem,8vw,6.6rem);line-height:.95;letter-spacing:.01em;
@@ -370,10 +391,29 @@ section,header,footer{position:relative;}
   .ww-div{display:none;}
   .when-where{gap:30px;}
   .rsvp-wrap{grid-template-columns:1fr;gap:40px;}
+  .bauble{width:clamp(240px,36vw,360px);right:12px;opacity:.97;}
 }
 @media (max-width:560px){
-  .hero-meta{font-size:.7rem;letter-spacing:.16em;gap:.5em;}
-  .qr-block{flex-direction:column;text-align:center;}
-  .qr-side{text-align:center;}
+  .hero{padding:12vh 22px 15vh;}
+  .hero-meta{font-size:.68rem;letter-spacing:.13em;gap:.45em;}
+  .hero-host{letter-spacing:.22em;}
+  .about{min-height:auto;padding-top:clamp(60px,10vh,110px);}
+  /* About heading shrinks so the long middle line clears the hanging bauble */
+  .about .h-display{font-size:clamp(1.95rem,8vw,2.6rem);}
+  .bauble{width:172px;right:2px;top:-4px;}
+  .lede{font-size:1.12rem;}
+  .plan{padding:clamp(30px,6vh,60px) 0 clamp(56px,10vh,110px);}
+  .card{padding:26px 24px;}
+  .card-num{margin-bottom:1.1rem;}
+  .qr-block{flex-direction:column;text-align:center;gap:26px;}
+  .qr-side{text-align:center;max-width:none;}
   .field-row{grid-template-columns:1fr;gap:0;}
+  /* comfortable tap target */
+  .rsvp-btn{width:100%;padding:1.15em 2em;font-size:.8rem;}
+  .rsvp-actions{gap:16px;}
+}
+@media (max-width:400px){
+  .about .h-display{font-size:clamp(1.8rem,7.6vw,2.3rem);}
+  .bauble{width:150px;right:0;}
+  .wrap{padding:0 20px;}
 }
